@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Inscription{% endblock %}
+{% block main %}
+<div class="container my-5">
+    <div class="text-center mb-4">
+        <h3 class="text-uppercase fw-bold">Inscription</h3>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nom</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Entrez votre nom"
+                                required title="Entrez votre nom">
+                        </div>
+                        <div class="mb-3">
+                            <label for="firstname" class="form-label">Prénom</label>
+                            <input type="text" id="firstname" name="firstname" class="form-control"
+                                placeholder="Entrez votre prénom" required title="Entrez votre prénom">
+                        </div>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Nom d'utilisateur</label>
+                            <input type="text" id="username" name="username" class="form-control"
+                                placeholder="Choisissez un nom d'utilisateur" required title="Choisissez un nom d'utilisateur">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pp" class="form-label">Photo de profil</label>
+                            <input type="file" id="pp" name="pp" accept="image/*" class="form-control" title="Choisissez une photo de profil">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Adresse email</label>
+                            <input type="email" id="email" name="mail" class="form-control"
+                                placeholder="exemple@email.com" required title="Entrez votre adresse email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="mdp1" class="form-label">Mot de passe</label>
+                            <input type="password" id="mdp1" name="mdp1" class="form-control"
+                                placeholder="Créez un mot de passe" required title="Créez un mot de passe">
+                        </div>
+                        <div class="mb-4">
+                            <label for="mdp2" class="form-label">Confirmation du mot de passe</label>
+                            <input type="password" id="mdp2" name="mdp2" class="form-control"
+                                placeholder="Confirmez votre mot de passe" required title="Confirmez votre mot de passe">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success" name="signin_button" title="Valider l'inscription">
+                                <i class="fi fi-br-user-add me-2"></i>S'inscrire
+                            </button>
+                        </div>
+                        <div class="text-center mt-3">
+                            <small>Déjà un compte ? <a href="{% url 'login' %}" class="text-decoration-none" title="Connectez-vous à votre compte">Connectez-vous</a></small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

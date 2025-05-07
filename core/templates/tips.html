@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}Conseils{%endblock%}
+{% block main %}
+<h3 class="text-uppercase m-4">Conseils Pratiques</h3>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-sm">
+                <div class="card-body p-5">
+                    <h4 class="text-uppercase card-text mb-4 font-weight-bold">
+                        Comment sécuriser son identité numérique?
+                    </h4>
+                    <p class="card-text">
+                        Utilise des mots de passe différents pour chaque site ou service. Un
+                        mot de passe unique évite qu'une seule fuite compromette tous tes
+                        comptes.
+                    </p>
+                    <p class="card-text">
+                        Active la double authentification (2FA) dès que possible. Cela
+                        ajoute une couche de sécurité même si ton mot de passe est
+                        compromis.
+                    </p>
+                    <p class="card-text">
+                        Ne partage jamais tes informations personnelles ou mots de passe par
+                        e-mail, message ou sur les réseaux sociaux.
+                    </p>
+                    <p class="card-text">
+                        Méfie-toi des liens suspects ou inattendus, même s'ils semblent
+                        venir de personnes que tu connais. Privilégie toujours l’accès
+                        direct aux sites officiels.
+                    </p>
+                </div>
+            </div>
+            <div class="card shadow-sm mt-4">
+                <div class="card-body p-5">
+                    <h4 class="text-uppercase card-text mb-4 font-weight-bold">
+                        Bonnes pratiques pour naviguer en toute sécurité
+                    </h4>
+
+                    <p class="card-text">
+                        Garde ton navigateur à jour pour bénéficier des derniers correctifs
+                        de sécurité et éviter les failles exploitées par les cybercriminels.
+                    </p>
+
+                    <p class="card-text">
+                        Installe un bloqueur de publicité fiable pour limiter les risques de
+                        malwares dissimulés dans les publicités malveillantes
+                        (malvertising).
+                    </p>
+
+                    <p class="card-text">
+                        Utilise un VPN si tu te connectes à des réseaux Wi-Fi publics, comme
+                        dans les cafés ou les gares, pour protéger tes données de
+                        navigation.
+                    </p>
+
+                    <p class="card-text">
+                        Vérifie toujours que le site utilise le protocole HTTPS avant de
+                        saisir des données sensibles comme ton mot de passe ou ton numéro de
+                        carte.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

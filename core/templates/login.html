@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Connexion{% endblock %}
+
+{% block main %}
+<div class="container my-5">
+    <div class="text-center mb-4">
+        <h3 class="text-uppercase fw-bold">Connexion</h3>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-5">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Nom d'utilisateur</label>
+                            <input type="text" id="username" name="username" class="form-control"
+                                placeholder="Entrez votre nom d'utilisateur" required title="Entrez votre nom d'utilisateur">
+                        </div>
+                        <div class="mb-4">
+                            <label for="mdp" class="form-label">Mot de passe</label>
+                            <input type="password" id="mdp" name="mdp" class="form-control"
+                                placeholder="Entrez votre mot de passe" required title="Entrez votre mot de passe">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary" name="login_button" title="Se connecter à votre compte">
+                                Connexion
+                            </button>
+                        </div>
+                        <div class="text-center mt-3">
+                            <small>Pas de compte ? <a href="{% url 'signin' %}" class="text-decoration-none" title="S'inscrire pour un nouveau compte">Inscrivez-vous</a></small>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

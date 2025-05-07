@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{username}} pour {{site}}{% endblock %}
+
+{% block main %}
+<h3 class="text-uppercase fw-bold m-4">Changer les Informations pour le site "{{site}}"</h3>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="new_site" class="form-label">Nouvel URL</label>
+                            <input type="text" id="new_site" name="new_site" class="form-control"
+                                placeholder="Ancien : {{site}}" title="Entrez le nouvel URL du site">
+                        </div>
+                        <div class="mb-3">
+                            <label for="new_username" class="form-label">Nouveau Nom d'Utilisateur</label>
+                            <input type="text" id="new_username" name="new_username" class="form-control"
+                                placeholder="Ancien : {{username}}" title="Entrez le nouveau nom d'utilisateur">
+                        </div>
+                        <div class="mb-3">
+                            <label for="new_password" class="form-label">Nouveau Mot de Passe</label>
+                            <input type="password" id="new_password" name="new_password" class="form-control"
+                                placeholder="Mot de Passe" required title="Entrez le nouveau mot de passe pour ce site">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-warning fw-bold text-uppercase" name="modif_button">
+                                Modifier
+                            </button>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="{% url 'mypass' %}" class="text-decoration-none text-muted">
+                                Retour à MyPass
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

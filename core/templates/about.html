@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Informations{% endblock %}
+{% block main %}
+<h3 class="text-uppercase fw-bold m-4">Informations</h3>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-sm">
+                <div class="card-body p-5">
+                    <h4 class="text-uppercase card-text mb-4 font-weight-bold">A propos</h4>
+                    <p class="card-text">
+                        KeyPass est un projet de générateur de mots de passe sécurisé, pensé pour offrir à ses
+                        utilisateurs une solution simple, fiable et efficace face aux enjeux croissants de
+                        cybersécurité.
+                    </p>
+                    <p class="card-text">
+                        Ce service permet de générer des mots de passe aléatoires, avec différents niveaux de sécurité,
+                        tout en assurant un chiffrement fort grâce à l'utilisation de la bibliothèque
+                        <code>Fernet</code> de la suite <code>cryptography</code> en Python.
+                    </p>
+                    <p class="card-text">
+                        KeyPass a été conçu dans une démarche pédagogique, afin de sensibiliser les utilisateurs aux
+                        bonnes pratiques de sécurité numérique.
+                        Il illustre concrètement comment une application web peut protéger les données sensibles dès
+                        leur création.
+                    </p>
+                    <p class="card-text">
+                        Ce projet est également un terrain d’expérimentation autour de Django, du design avec Bootstrap,
+                        et de la gestion sécurisée des fichiers et sessions utilisateurs.
+                    </p>
+                </div>
+            </div>
+            <div class="card shadow-sm mt-4">
+                <div class="card-body p-5">
+                    <h4 class="text-uppercase card-text mb-4 font-weight-bold">Contact</h4>
+                    <p class="card-text">
+                        <i class="fi fi-br-street-view me-2"></i> 16 Rue d'Auteuil, Paris 75016, FR
+                    </p>
+                    <p class="card-text">
+                        <i class="fi fi-br-envelope me-2"></i> contact@passgen.fr
+                    </p>
+                    <p class="card-text">
+                        <i class="fi fi-br-phone-call me-2"></i> +01 54 67 82 38
+                    </p>
+                    <p class="card-text">
+                        <small>Powered by y.o</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Mes Mots de Passe{% endblock %}
+{% block main %}
+<h3 class="text-uppercase fw-bold m-4">Mes Mots de Passe</h3>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <form class="d-flex mb-4" method="post" action="{% url 'mypass' %}">
+                {% csrf_token %}
+                <input class="form-control me-2 shadow-sm" type="search" name="q_cont" value="{{ query_mdp }}"
+                    placeholder="Rechercher un mot de passe..." title="Rechercher un mot de passe par nom d'utilisateur ou site">
+                <button class="btn btn-dark" type="submit" name="query_button_cont" title="Lancer la recherche">
+                    <i class="fi fi-br-search"></i>
+                </button>
+                {% if found_usrnm or found_site %}
+                <a href="{% url 'mypass' %}" class="btn btn-outline-secondary ms-2" title="Réinitialiser la recherche">Réinitialiser</a>
+                {% endif %}
+            </form>
+            <div class="row g-4">
+                {% if found_usrnm or found_site %}
+                    {% for usrnm_search, site_search, mdp_search in searched %}
+                    <div class="col-md-6">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header ps-3 py-4">
+                                <h5 class="card-title d-inline">
+                                    <i class="fi fi-br-globe fs-6 me-2"></i> 
+                                    <a target="_blank" href="http://{{site_search}}" class="text-decoration-none text-dark" title="Accéder au site {{ site_search }}">
+                                        <span class="fs-4">{{ site_search }}</span>
+                                    </a>
+                                </h5>
+                            </div>
+                            <div class="card-body my-3 py-4">
+                                <p class="card-text"><strong>Nom d'Utilisateur :</strong> <span class="user-select-all">{{ usrnm_search }}</span></p>
+                                <hr>
+                                <p class="card-text"><strong class="me-2">Mot de passe :</strong> <span
+                                        class="user-select-all badge bg-light text-dark border font-monospace fs-6">{{ mdp_search }}</span></p>
+                            </div>
+                            <div class="card-footer text-center">
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="usrnm_del" value="{{ usrnm_search }}">
+                                    <input type="hidden" name="site_del" value="{{ site_search }}">
+                                    <button class="btn btn-outline-none btn-floating" type="submit" value="delete"
+                                        name="action" title="Supprimer ce mot de passe">
+                                        <i class="me-2 fs-7 fi fi-br-trash-xmark d-inline"></i>
+                                    </button>
+                                    <span class="mx-2 border-start"
+                                        style="height: 24px; display: inline-block; vertical-align: middle;"></span>
+                                    <a class="btn btn-outline-none btn-floating"
+                                        href="{% url 'edit_mdp' site=site_search username=usrnm_search %}" value="edit"
+                                        name="action" title="Modifier ce mot de passe">
+                                        <i class="ms-2 me-0 fs-7 fi fi-br-pencil-ruler d-inline"></i>
+                                    </a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    {% for mdp, usrnm, site in tuple %}
+                    <div class="col-md-6">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-header ps-3 py-4">
+                                <h5 class="card-title d-inline">
+                                    <i class="fi fi-br-globe fs-6 me-2"></i> 
+                                    <a target="_blank" href="http://{{site}}" class="text-decoration-none text-dark" title="Accéder au site {{ site }}">
+                                        <span class="fs-4">{{ site }}</span>
+                                    </a>
+                                </h5>
+                            </div>
+                            <div class="card-body my-3 py-4">
+                                <p class="card-text"><strong>Nom d'Utilisateur :</strong> <span class="user-select-all">{{ usrnm }}</span></p>
+                                <hr>
+                                <p class="card-text"><strong class="me-2">Mot de passe :</strong> <span
+                                        class="user-select-all badge bg-light text-dark border font-monospace fs-6">{{ mdp }}</span></p>
+                            </div>
+                            <div class="card-footer text-center">
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="usrnm_del" value="{{ usrnm }}">
+                                    <input type="hidden" name="site_del" value="{{ site }}">
+                                    <button class="btn btn-outline-none btn-floating" type="submit" value="delete"
+                                        name="action" title="Supprimer ce mot de passe">
+                                        <i class="me-2 fs-7 fi fi-br-trash-xmark d-inline"></i>
+                                    </button>
+                                    <span class="mx-2 border-start"
+                                        style="height: 24px; display: inline-block; vertical-align: middle;"></span>
+                                    <a class="btn btn-outline-none btn-floating"
+                                        href="{% url 'edit_mdp' site=site username=usrnm %}" value="edit" name="action" title="Modifier ce mot de passe">
+                                        <i class="ms-2 me-0 fs-7 fi fi-br-pencil-ruler d-inline"></i>
+                                    </a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-12 text-center pt-5">
+                        <p class="fs-5 text-muted"><i class="fi fi-br-lock me-2 fs-6"></i>Aucun mot de passe enregistré.</p>
+                    </div>
+                    <div class="text-center mt-0 pb-5">
+                        <small>Créer un mot de passe? <a href="{% url 'home' %}"
+                                class="text-decoration-none" title="Retour à l'accueil">Accueil</a></small>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

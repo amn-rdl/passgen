@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bienvenue sur PassGen{% endblock %}
+{% block main %}
+{% if not decode %}
+<h3 class="text-uppercase fw-bold m-4">Generez votre nouveau mot de passe</h3>
+{% else %}
+<h3 class="text-uppercase fw-bold m-4">Votre nouveau mot de passe</h3>
+{% endif %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <form method="post">
+                        {% csrf_token %}
+                        {% if not decode or action == "regen" %}
+                        <div class="mb-3">
+                            <label for="url_site" class="form-label">URL</label>
+                            <input type="text" id="url_site" name="url_site" class="form-control"
+                                placeholder="Ex : example.com" required title="Entrez l'URL du site (exemple.com)">
+                        </div>
+                        <div class="mb-3">
+                            <label for="usrnm_site" class="form-label">Nom d'Utilisateur</label>
+                            <input type="text" id="usrnm_site" name="usrnm_site" class="form-control"
+                                placeholder="Ex : user123" required title="Entrez votre nom d'utilisateur pour ce site">
+                        </div>
+                        <div class="mb-3">
+                            <label for="level" class="form-label">Niveau de sécurité</label>
+                            <select class="form-select" name="level" id="level" required title="Choisissez un niveau de sécurité">
+                                <option value="" selected disabled>Choisir un niveau</option>
+                                <option value="1" title="Niveau de sécurité basique">Basique</option>
+                                <option value="2" title="Niveau de sécurité avancé">Avancé</option>
+                            </select>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary" value="generator_button"
+                                name="generator_button" title="Générer un nouveau mot de passe">
+                                Générer
+                            </button>
+                        </div>
+                        {% else %}
+                        <input type="hidden" name="url_site" value="{{ request.POST.url_site|default_if_none:'' }}">
+                        <input type="hidden" name="usrnm_site" value="{{ request.POST.usrnm_site|default_if_none:'' }}">
+                        <input type="hidden" name="code" value="{{ code }}">
+                        <div class="container my-5">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10">
+                                    <div class="card shadow-sm">
+                                        <div class="card-body text-center">
+                                            <h5 class="mb-3 text-uppercase">Votre Mot de passe</h5>
+                                            <p
+                                                class="user-select-all fs-5 fw-semibold bg-light p-3 rounded border d-inline-block"
+                                                title="Cliquez pour copier">
+                                                {{ decode }}
+                                            </p>
+                                            <div class="d-flex justify-content-center gap-3 mt-4">
+                                                <button value="regen" type="submit" name="action"
+                                                    class="btn btn-outline-primary" title="Régénérer un nouveau mot de passe">
+                                                    <i class="fi fi-br-rotate-left me-1"></i> Regenerer
+                                                </button>
+                                                <button value="save" type="submit" name="action"
+                                                    class="btn btn-outline-success" title="Enregistrer ce mot de passe">
+                                                    <i class="fi fi-br-disk me-1"></i> Enregistrer
+                                                </button>
+                                                <a href="{% url 'mypass' %}" class="btn btn-outline-danger"
+                                                    title="Annuler la génération">
+                                                    <i class="fi fi-br-cross me-1"></i> Annuler
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

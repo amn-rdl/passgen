@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Changement de mes infos{% endblock %}
+{% block main %}
+<div class="container my-5">
+    <div class="text-center mb-4">
+        <h3 class="text-uppercase fw-bold">Modification de mes informations</h3>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <form method="post" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nom</label>
+                            <input type="text" id="name" name="name" class="form-control"
+                                placeholder="Entrez votre nouveau nom" title="Modifier votre nom">
+                        </div>
+                        <div class="mb-3">
+                            <label for="firstname" class="form-label">Prénom</label>
+                            <input type="text" id="firstname" name="firstname" class="form-control"
+                                placeholder="Entrez votre nouveau prénom" title="Modifier votre prénom">
+                        </div>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Nom d'utilisateur</label>
+                            <input type="text" id="username" name="username" class="form-control"
+                                placeholder="Entrez un nouveau nom d'utilisateur" title="Modifier votre nom d'utilisateur">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pp" class="form-label">Photo de profil</label>
+                            <input type="file" id="pp" name="pp" accept="image/*" class="form-control"
+                                title="Changer votre photo de profil">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Adresse email</label>
+                            <input type="email" id="email" name="mail" class="form-control"
+                                placeholder="Entrez votre nouvel email" title="Mettre à jour votre adresse email">
+                        </div>
+                        <div class="mb-4">
+                            <label for="pwd" class="form-label">Mot de passe</label>
+                            <input type="password" id="pwd" name="pwd" class="form-control"
+                                placeholder="Changez votre mot de passe" title="Modifier votre mot de passe">
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-warning" name="change_info_button"
+                                title="Enregistrer vos nouvelles informations">
+                                Enregistrer les modifications
+                            </button>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="{% url 'account' %}" class="text-decoration-none text-muted"
+                               title="Retour à votre profil utilisateur">
+                                Retour au profil
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

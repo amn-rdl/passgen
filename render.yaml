@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: passgen-app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn passgen.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: passgen.settings
+      - key: SECRET_KEY
+        value: )#g@0@m*pn)(bv#o!+$qgv0@bx3(f4c2ho=0v^an8$l*2_vhn0
+      - key: RENDER_EXTERNAL_HOSTNAME
+        value: ""
+    staticPublishPath: static

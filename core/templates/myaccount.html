@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Mon Compte{%endblock %}
+{% block main %}
+<h3 class="text-uppercase fw-bold m-4">Vos Informations</h3>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card shadow-sm">
+                <div class="card-header text-center p-4 d-flex align-items-center justify-content-center">
+                    {% if user.pp %}
+                    <img src="{{ user.pp.url }}" class="rounded-circle mb-1 shadow-sm me-4" alt="Photo de {{user.username}}"
+                        style="width: 55px; height: 55px; object-fit: cover;" title="Photo de profil de {{user.username}}">
+                    {% else %}
+                    <i class="fi fi-br-admin mb-0 me-4" title="Pas de photo de profil" style="font-size: 50px;"></i>
+                    {% endif %}
+                    <div>
+                        <h4 class="card-title mb-0">{{ user.first_name }} {{ user.last_name }}</h4>
+                        <small class="text-muted">@{{ user.username }}</small>
+                    </div>
+                </div>
+                <div class="card-body p-4">
+                    <p class="card-text mb-4" title="Adresse email de l'utilisateur">
+                        Email : {{ user.email }}
+                    </p>
+                    <p class="card-text mb-4" title="Date de création du compte utilisateur">
+                        Date de création : {{ user.date_joined|date:"d/m/Y à H:i" }}
+                    </p>
+                    <p class="card-text mb-4" title="Dernière connexion de l'utilisateur">
+                        Dernière connexion : {{ user.last_login|date:"d/m/Y à H:i" }}
+                    </p>
+                </div>
+                <div class="card-footer text-center p-3">
+                    <a href="{% url 'mypass' %}"
+                        class="btn btn-outline-dark btn-floating m-1 d-inline-flex justify-content-center" title="Accéder à mes mots de passe"><i
+                            class="fi fi-br-lock fs-5"></i></a>
+                    <a href="{% url 'change_info' %}"
+                        class="btn btn-outline-dark btn-floating m-1 d-inline-flex justify-content-center" title="Modifier mes informations"><i
+                            class="fi fi-br-settings-sliders fs-5"></i></a>
+                    <a href="{% url 'logout' %}"
+                        class="btn btn-outline-dark btn-floating m-1 d-inline-flex justify-content-center" title="Se déconnecter de mon compte"><i
+                            class="fi fi-br-exit fs-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
