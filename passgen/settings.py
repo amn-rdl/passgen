@@ -15,7 +15,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = False
 
 RENDER_HOSTNAME = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
-ALLOWED_HOSTS = ['passgen-mzxv.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['passgen-mzxv.onrender.com', 'passgen.onrender.com', 'localhost']
 if RENDER_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_HOSTNAME)
 
