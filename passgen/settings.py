@@ -9,18 +9,14 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = ')#g@0@m*pn)(bv#o!+$qgv0@bx3(f4c2ho=0v^an8$l*2_vhn0'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 ALLOWED_HOSTS = ['passgen-mzxv.onrender.com', 'localhost', '127.0.0.1']
 
-# Application definition
 INSTALLED_APPS = [
     "unfold",
     "unfold.contrib.filters",
@@ -152,18 +148,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'passgen.wsgi.application'
 
- 
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-# Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -179,9 +169,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
 
 LANGUAGE_CODE = 'fr-fr'
 
@@ -212,9 +199,6 @@ STATICFILES_FINDERS = [
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
