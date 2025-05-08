@@ -14,6 +14,3 @@ services:
       - key: DEBUG
         value: False
     staticPublishPath: staticfiles
-    staticRoutes:
-      - source: /static
-        destination: /static
