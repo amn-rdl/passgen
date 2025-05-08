@@ -1,0 +1,25 @@
+# Environnements virtuels
+venv/
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Django migrations
+*/migrations/
+!*/migrations/__init__.py
+
+# Static & Media
+staticfiles/
+media/*
+!media/.keep
+
+# Fichiers système
+.DS_Store
+*.log
+
+# VSCode
+.vscode/
