@@ -13,4 +13,3 @@ services:
         value: ""
       - key: DEBUG
         value: False
-    staticPublishPath: static
