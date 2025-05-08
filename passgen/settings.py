@@ -5,6 +5,10 @@ from django.urls import reverse_lazy
 from django.templatetags.static import static
 from django.utils.translation import gettext_lazy as _
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -187,13 +191,13 @@ USE_I18N = True
 
 USE_TZ = True
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+cloudinary.config(
+    cloud_name='dvcn0i6e4',
+    api_key='199564695761819',
+    api_secret='DdhxphfwGSNlr3aZGI9CCHri07o'
+)
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dvcn0i6e4',
-    'API_KEY': '199564695761819',
-    'API_SECRET': 'DdhxphfwGSNlr3aZGI9CCHri07o'
-}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 
 STATIC_URL = '/static/'
@@ -217,5 +221,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "core.User"
 LOGIN_URL = '/login/'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  
+MEDIA_URL = 'https://res.cloudinary.com/dvcn0i6e4/image/upload/'
