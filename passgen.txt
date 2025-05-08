@@ -1,0 +1,11 @@
+modifications a faire : 
+    -faire marcher sur tel 
+    -regler le pb de cloudinary
+
+cd C:\Users\amani\Documents\VSCode\Python Django\PassGen
+
+git status
+
+git add .
+git commit -m "..."
+git push
