@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = ')#g@0@m*pn)(bv#o!+$qgv0@bx3(f4c2ho=0v^an8$l*2_vhn0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['passgen-mzxv.onrender.com', 'localhost', '127.0.0.1']
 
