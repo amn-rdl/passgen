@@ -178,11 +178,12 @@ USE_I18N = True
 
 USE_TZ = True
 
-cloudinary.config(
-    cloud_name='dvcn0i6e4',
-    api_key='199564695761819',
-    api_secret='DdhxphfwGSNlr3aZGI9CCHri07o'
-)
+#cloudinary.config(cloud_name='dvcn0i6e4',api_key='199564695761819',api_secret='DdhxphfwGSNlr3aZGI9CCHri07o')
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dvcn0i6e4',
+    'API_KEY': '199564695761819',
+    'API_SECRET': 'DdhxphfwGSNlr3aZGI9CCHri07o',
+}
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
