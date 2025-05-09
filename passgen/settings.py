@@ -205,4 +205,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "core.User"
 LOGIN_URL = '/login/'
 
-MEDIA_URL = 'https://res.cloudinary.com/dvcn0i6e4/image/upload/'
+MEDIA_URL = '/media/'
