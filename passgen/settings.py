@@ -9,6 +9,9 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
+import dj_database_url
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = ')#g@0@m*pn)(bv#o!+$qgv0@bx3(f4c2ho=0v^an8$l*2_vhn0'
@@ -149,10 +152,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'passgen.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default='postgresql://amani:EokxVJShebpAyL5JOFzH56JDrjCTyzLl@dpg-d0fk0fqdbo4c73ahrmkg-a/passgen_jldb'
+    )
 }
 
 AUTH_PASSWORD_VALIDATORS = [
