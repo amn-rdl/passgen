@@ -4,6 +4,6 @@ from cloudinary.models import CloudinaryField
 
 class User(AbstractUser):
     email = models.EmailField(unique=True)
-    pp = CloudinaryField('prof_pics', blank=True, null=True)
+    pp = CloudinaryField(blank=True, null=True)
     def __str__(self):
         return f'Compte de {self.username}'
