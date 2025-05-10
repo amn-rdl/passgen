@@ -157,10 +157,6 @@ DATABASES = {
     )
 }
 
-import sys
-if "migrate" in sys.argv:
-    print("Migrations sur Render : OK")
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
