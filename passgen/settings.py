@@ -152,11 +152,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'passgen.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default='postgres://amani:EokxVJShebpAyL5JOFzH56JDrjCTyzLl@dpg-d0fk0fqdbo4c73ahrmkg-a.oregon-postgres.render.com/passgen_jldb'
+    )
 }
+
+import sys
+if "migrate" in sys.argv:
+    print("Migrations sur Render : OK")
 
 AUTH_PASSWORD_VALIDATORS = [
     {
