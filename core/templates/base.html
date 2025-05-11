@@ -60,7 +60,7 @@
                     {% if user.pp %}
                     <button class="btn btn-floating me-4 ms-4" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#staticBackdrop" aria-controls="staticBackdrop" title="Ouvrir le menu utilisateur">
-                        <img src="{{ user.pp.url }}" style="width: 80px; height: auto; clip-path:ellipse(33% 50%);"
+                        <img class="rounded-circle" src="{{ user.pp.url }}" style="width: 70px; height: 70px;"
                             alt="Photo de Profil de {{user.username}}">
                     </button>
                     {% else %}

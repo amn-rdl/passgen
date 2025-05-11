@@ -283,7 +283,6 @@ def change_info(request):
             user.pp = pp
 
         pwd = request.POST.get("pwd")
-        print("Nouveau mot de passe reçu :", pwd)
         if pwd:
             user.set_password(pwd)
 
