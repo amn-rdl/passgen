@@ -1,10 +1,17 @@
-modifications a faire : 
-    -faire marcher sur tel 
-
 cd C:\Users\amani\Documents\VSCode\Python Django\PassGen
-
-git status
-
 git add .
-git commit -m "..."
+git commit -m "."
 git push
+
+
+modifications a faire : 
+
+tout refaire en dark (Mode sombre/clair automatique)
+style futuriste
+
+stocker les mdp sur la bdd render
+
+Export/Import des mots de passe (CSV, JSON).
+Statistiques d’utilisation (nombre de mots de passe générés, force moyenne, etc.)
+Options avancées de génération (exclure certains caractères, imposer des règles).
+Notifications de sécurité (rappels pour changer ses mots de passe).

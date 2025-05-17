@@ -18,7 +18,6 @@ def gen_key():
     return fernet
 fernet = gen_key()
 
-
 def pass_create(level):
     letters = string.ascii_letters
     spe = string.punctuation
@@ -165,6 +164,18 @@ def mdp_load(user):
                     liste_mdp.append(pass_decode(password))
 
     return liste_mdp, liste_username, liste_site
+
+def new_mdp(request):
+    user = request.user
+    data = load_data()
+    if request.method == "POST":
+        site = request.POST.get("site")
+        usrnm = request.POST.get("username")
+        pwd = request.POST.get("password")
+        pwd_encrypted = fernet.encrypt(pwd.encode()).decode()
+        save_mdp(user, pwd_encrypted, data, usrnm, site)
+        return redirect("mypass")
+    return render(request, 'new_mdp.html')
 
 def mypass(request):
     user = request.user

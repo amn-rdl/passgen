@@ -14,7 +14,10 @@
                     <i class="fi fi-br-search"></i>
                 </button>
                 {% if found_usrnm or found_site %}
-                <a href="{% url 'mypass' %}" class="btn btn-outline-secondary ms-2" title="Réinitialiser la recherche">Réinitialiser</a>
+                <a href="{% url 'mypass' %}" class="btn btn-outline-secondary ms-2" title="Réinitialiser la recherche"><i class="fi fi-br-cross"></i></a>
+                {% else %}
+                <span class="mx-3 border-start" style="height: 34px; display: inline-block; vertical-align: middle;"></span>
+                <a href="{% url 'new_mdp' %}" class="btn btn-outline-success" title="Créer un nouveau mot de passe"><i class="fi fi-br-plus"></i></a>
                 {% endif %}
             </form>
             <div class="row g-4">
