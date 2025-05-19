@@ -36,8 +36,18 @@
                             <div class="card-body my-3 py-4">
                                 <p class="card-text"><strong>Nom d'Utilisateur :</strong> <span class="user-select-all">{{ usrnm_search }}</span></p>
                                 <hr>
-                                <p class="card-text"><strong class="me-2">Mot de passe :</strong> <span
-                                        class="user-select-all badge bg-light text-dark border font-monospace fs-6">{{ mdp_search }}</span></p>
+                                <p class="card-text">
+                                    <strong class="me-2">Mot de passe :</strong> 
+                                    <input type="password" value="{{ mdp_search }}" id="mdp-{{ forloop.counter }}" readonly class="form-control d-inline w-auto badge bg-light text-dark font-monospace fs-6">
+                                    <button class="btn btn-outline-none btn-floating" type="button" onclick="togglePwd('mdp-{{ forloop.counter }}', this)" title="Afficher/Masquer le mot de passe">
+                                        <i class="fi fi-br-eye"></i>
+                                    </button>                                    
+                                    <span class="mx-0 border-start" style="height: 20px; display: inline-block; vertical-align: middle;"></span>
+                                    <a class="btn btn-outline-none btn-floating" download="pwd_{{site_search}}({{user.username}}).txt"
+                                        href="data:text/plain;charset=utf-8,PassGen Data Downloaded for {{ site_search|urlencode }}%0A%0ANom d'utilisateur : {{ usrnm_search|urlencode }}%0AMot de Passe : {{ mdp_search|urlencode }}">
+                                        <i class="fi fi-br-download"></i>
+                                    </a>
+                                </p>
                             </div>
                             <div class="card-footer text-center">
                                 <form method="post">
@@ -51,13 +61,21 @@
                                     <span class="mx-2 border-start"
                                         style="height: 24px; display: inline-block; vertical-align: middle;"></span>
                                     <a class="btn btn-outline-none btn-floating"
-                                        href="{% url 'edit_mdp' site=site_search username=usrnm_search %}" value="edit"
-                                        name="action" title="Modifier ce mot de passe">
+                                        href="{% url 'edit_mdp' site=site_search username=usrnm_search %}" value="edit" name="action" title="Modifier ce mot de passe">
                                         <i class="ms-2 me-0 fs-7 fi fi-br-pencil-ruler d-inline"></i>
                                     </a>
                                 </form>
                             </div>
                         </div>
+                    </div>
+                    {% empty %}
+                    <div class="col-12 text-center pt-5">
+                        <p class="fs-5 text-muted"><i class="fi fi-br-lock me-2 fs-6"></i>Aucun mot de passe enregistré.</p>
+                    </div>
+                    <div class="text-center mt-0 pb-5">
+                        <small>Créer un mot de passe? <a href="{% url 'home' %}"
+                                class="text-decoration-none me-2" title="Retour à l'accueil">Accueil</a> ou <a href="{% url 'new_mdp' %}"
+                                class="text-decoration-none ms-2" title="Créer un nouveau mot de passe"><i class="fi fi-br-plus"></i></a></small>
                     </div>
                     {% endfor %}
                 {% else %}
@@ -75,8 +93,18 @@
                             <div class="card-body my-3 py-4">
                                 <p class="card-text"><strong>Nom d'Utilisateur :</strong> <span class="user-select-all">{{ usrnm }}</span></p>
                                 <hr>
-                                <p class="card-text"><strong class="me-2">Mot de passe :</strong> <span
-                                        class="user-select-all badge bg-light text-dark border font-monospace fs-6">{{ mdp }}</span></p>
+                                <p class="card-text">
+                                    <strong class="me-2">Mot de passe :</strong> 
+                                    <input type="password" value="{{ mdp }}" id="mdp-{{ forloop.counter }}" readonly class="form-control d-inline w-auto badge bg-light text-dark font-monospace fs-6">
+                                    <button class="btn btn-outline-none btn-floating" type="button" onclick="togglePwd('mdp-{{ forloop.counter }}', this)" title="Afficher/Masquer le mot de passe">
+                                        <i class="fi fi-br-eye"></i>
+                                    </button>                                    
+                                    <span class="mx-0 border-start" style="height: 20px; display: inline-block; vertical-align: middle;"></span>
+                                    <a class="btn btn-outline-none btn-floating" download="pwd_{{site}}({{user.username}}).txt"
+                                        href="data:text/plain;charset=utf-8,PassGen Data Downloaded for {{ site|urlencode }}%0A%0ANom d'utilisateur : {{ usrnm|urlencode }}%0AMot de Passe : {{ mdp|urlencode }}">
+                                        <i class="fi fi-br-download"></i>
+                                    </a>
+                                </p>
                             </div>
                             <div class="card-footer text-center">
                                 <form method="post">
@@ -103,7 +131,8 @@
                     </div>
                     <div class="text-center mt-0 pb-5">
                         <small>Créer un mot de passe? <a href="{% url 'home' %}"
-                                class="text-decoration-none" title="Retour à l'accueil">Accueil</a></small>
+                                class="text-decoration-none me-2" title="Retour à l'accueil">Accueil</a> ou <a href="{% url 'new_mdp' %}"
+                                class="text-decoration-none ms-2" title="Créer un nouveau mot de passe"><i class="fi fi-br-plus"></i></a></small>
                     </div>
                     {% endfor %}
                 {% endif %}

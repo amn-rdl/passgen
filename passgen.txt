@@ -8,10 +8,7 @@ modifications a faire :
 
 tout refaire en dark (Mode sombre/clair automatique)
 style futuriste
-
 stocker les mdp sur la bdd render
 
-Export/Import des mots de passe (CSV, JSON).
-Statistiques d’utilisation (nombre de mots de passe générés, force moyenne, etc.)
-Options avancées de génération (exclure certains caractères, imposer des règles).
-Notifications de sécurité (rappels pour changer ses mots de passe).
+
+Options avancées de génération (exclure certains caractères, imposer des règles, ...)
