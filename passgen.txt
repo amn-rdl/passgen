@@ -6,9 +6,6 @@ git push
 
 modifications a faire : 
 
-tout refaire en dark (Mode sombre/clair automatique)
+tout refaire en dark (Mode sombre/clair)
 style futuriste
 stocker les mdp sur la bdd render
-
-
-Options avancées de génération (exclure certains caractères, imposer des règles, ...)

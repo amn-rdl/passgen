@@ -33,11 +33,14 @@
                                 <option value="2" title="Niveau de sécurité avancé">Avancé</option>
                             </select>
                         </div>
-                        <div class="d-grid">
+                        <div class="d-grid mt-4">
                             <button type="submit" class="btn btn-primary" value="generator_button"
                                 name="generator_button" title="Générer un nouveau mot de passe">
                                 Générer
-                            </button>
+                            </button> 
+                        </div>
+                        <div class="text-center mt-2">
+                            <small>Paramètres spécifiques ? <a href="{% url 'avance' %}" class="text-decoration-none" title="Creez un mot de passe aux paramètres avancés">Cliquez ici</a></small>
                         </div>
                         {% else %}
                         <input type="hidden" name="url_site" value="{{ request.POST.url_site|default_if_none:'' }}">

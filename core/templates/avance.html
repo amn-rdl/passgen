@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Creation de Mot de Passe avancé{% endblock %}
+
+{% block main %}
+<h3 class="text-uppercase fw-bold m-4">Generez votre nouveau mot de passe avancé</h3>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4">
+                    <form method="post">
+                        {% csrf_token %}
+                        {% if not decode %}
+                        <div class="mb-3">
+                            <label for="site" class="form-label">URL</label>
+                            <input type="text" id="site" name="site" class="form-control" placeholder="Ex : example.com"
+                                title="Entrez le nouvel URL du site" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Nom d'Utilisateur</label>
+                            <input type="text" id="username" name="username" class="form-control"
+                                placeholder="Ex : user123" title="Entrez le nouveau nom d'utilisateur" required>
+                        </div>
+                        <label for="accordionParam" class="form-label">Paramètres</label>
+                        <div class="accordion" id="accordionParam">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="True" aria-controls="collapse">
+                                    Choix
+                                </button>
+                                </h2>
+                                <div id="collapse" class="accordion-collapse collapse" data-bs-parent="#accordionParam">
+                                    <div class="accordion-body">
+                                        <div class="mb-4">
+                                            <label for="nb_char" class="form-label">Nombre de Caractères</label>
+                                            <input type="number" id="nb_char" name="nb_char" class="form-control"
+                                                value="12" title="Entrez le nombre de caractères pour ce mot de passe">
+                                        </div>
+                                        <label for="select_char" class="form-label">Composants</label>
+                                        <div id="select_char">
+                                            <div class="form-check form-check-inline form-switch">
+                                                <input class="form-check-input" type="checkbox" name="majuscules" id="majuscules" checked>
+                                                <label class="form-check-label" for="majuscules">Majuscules</label>
+                                            </div>
+                                            <div class="form-check form-check-inline form-switch">
+                                                <input class="form-check-input" type="checkbox" name="miniscules" id="miniscules" checked>
+                                                <label class="form-check-label" for="miniscules">Miniscules</label>
+                                            </div>
+                                            <div class="form-check form-check-inline form-switch">
+                                                <input class="form-check-input" type="checkbox" name="chiffres" id="chiffres" checked>
+                                                <label class="form-check-label" for="chiffres">Chiffres</label>
+                                            </div>
+                                            <div class="form-check form-check-inline form-switch mb-3">
+                                                <input class="form-check-input" type="checkbox" name="ponct" id="ponct" checked>
+                                                <label class="form-check-label" for="ponct">Ponctuations</label>
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="input-group-text">
+                                                    <div class="form-check form-switch">
+                                                        <input class="form-check-input" type="checkbox" name="user_chars_toggle" id="user_chars_toggle">
+                                                    </div>
+                                                </div>
+                                                <input type="text" class="form-control" id="user_chars" name="user_chars_desc" aria-describedby="user_chars_desc">
+                                            </div>
+                                            <div class="form-text mb-3" id="user_chars_desc">Inserez les caractères à utiliser dans votre mot de passe (sans espaces)</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-primary" value="generator_button"
+                                name="generator_button" title="Générer un nouveau mot de passe avancé">
+                                Générer
+                            </button>
+                        </div>
+                        {% else %}
+                        <input type="hidden" name="url_site" value="{{ request.POST.site|default_if_none:'' }}">
+                        <input type="hidden" name="usrnm_site" value="{{ request.POST.username|default_if_none:'' }}">
+                        <input type="hidden" name="code" value="{{ code }}">
+                        <div class="container my-5">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-10">
+                                    <div class="card shadow-sm">
+                                        <div class="card-body text-center">
+                                            <h5 class="mb-3 text-uppercase">Votre Mot de passe</h5>
+                                            <p
+                                                class="user-select-all fs-5 fw-semibold bg-light p-3 rounded border d-inline-block"
+                                                title="Cliquez pour copier">
+                                                {{ decode }}
+                                            </p>
+                                            <div class="d-flex justify-content-center gap-3 mt-4">
+                                                <button value="save" type="submit" name="action"
+                                                    class="btn btn-outline-success" title="Enregistrer ce mot de passe">
+                                                    <i class="fi fi-br-disk me-1"></i> Enregistrer
+                                                </button>
+                                                <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-danger"
+                                                    title="Annuler la génération">
+                                                    <i class="fi fi-br-cross me-1"></i> Annuler
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

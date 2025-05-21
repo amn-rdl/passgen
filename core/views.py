@@ -33,6 +33,26 @@ def pass_create(level):
         pwd = fernet.encrypt(pwd)
     return pwd.decode()
 
+def avance_create(user_chars_desc, majuscules, miniscules, chiffres, ponct, user_chars_toggle, nb_char):
+    chars = []
+    upper = string.ascii_uppercase
+    lower = string.ascii_lowercase
+    ponctuation = string.punctuation
+    digits = string.digits
+    if majuscules:
+        chars += upper
+    if miniscules:
+        chars += lower
+    if ponct:
+        chars += ponctuation
+    if chiffres:
+        chars += digits
+    if user_chars_toggle:
+        chars += user_chars_desc*2
+    pwd = "".join(random.choices(chars, k=nb_char)).encode()
+    pwd = fernet.encrypt(pwd)
+    return pwd.decode()
+
 def pass_decode(pwd):
     pwd = fernet.decrypt(pwd).decode()
     return pwd
@@ -67,6 +87,39 @@ def index(request):
         })
 
     return render(request, "index.html")
+
+def avance_mdp(request):
+    user = request.user
+    if request.method == 'POST':
+        data = load_data()
+        action = request.POST.get('action')
+        
+        if action == "save":
+            password = request.POST.get('code')
+            site = request.POST.get('url_site')
+            usrnm_site = request.POST.get('usrnm_site').lower().replace(" ", ".")
+            save_mdp(user, password, data, usrnm_site, site)
+            passdecode = pass_decode(password)
+        else:
+            user_chars_desc = request.POST.get('user_chars_desc')
+            
+            nb_char = request.POST.get('nb_char')
+            nb_char = int(nb_char)
+            majuscules = request.POST.get('majuscules') == 'on'
+            miniscules = request.POST.get('miniscules') == 'on'
+            chiffres = request.POST.get('chiffres') == 'on'
+            ponct = request.POST.get('ponct') == 'on'
+            user_chars_toggle = request.POST.get('user_chars_toggle') == 'on'
+            
+            
+            password = avance_create(user_chars_desc, majuscules, miniscules, chiffres, ponct, user_chars_toggle, nb_char)
+            passdecode = pass_decode(password)
+            return render(request, "avance.html", {
+                'code': password,
+                'decode': passdecode,
+                'user': user,
+            })
+    return render(request, "avance.html")
 
 def save_mdp(user, password, data, username, site):
     userr= user.username
