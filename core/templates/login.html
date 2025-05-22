@@ -20,8 +20,13 @@
                         </div>
                         <div class="mb-4">
                             <label for="mdp" class="form-label">Mot de passe</label>
-                            <input type="password" id="mdp" name="mdp" class="form-control"
-                                placeholder="Entrez votre mot de passe" required title="Entrez votre mot de passe">
+                            <div class="input-group">
+                                <input type="password" id="mdp" name="mdp" class="form-control"
+                                    placeholder="Entrez votre mot de passe" required title="Entrez votre mot de passe">
+                                <button class="btn btn-outline-dark btn-floating" type="button" onclick="togglePwd('mdp', this)" title="Afficher/Masquer le mot de passe">
+                                    <i class="fi fi-br-eye"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary" name="login_button" title="Se connecter à votre compte">

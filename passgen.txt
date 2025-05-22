@@ -8,4 +8,3 @@ modifications a faire :
 
 tout refaire en dark (Mode sombre/clair)
 style futuriste
-stocker les mdp sur la bdd render

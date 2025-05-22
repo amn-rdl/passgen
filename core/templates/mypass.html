@@ -41,7 +41,7 @@
                                     <input type="password" value="{{ mdp_search }}" id="mdp-{{ forloop.counter }}" readonly class="form-control d-inline w-auto badge bg-light text-dark font-monospace fs-6">
                                     <button class="btn btn-outline-none btn-floating" type="button" onclick="togglePwd('mdp-{{ forloop.counter }}', this)" title="Afficher/Masquer le mot de passe">
                                         <i class="fi fi-br-eye"></i>
-                                    </button>                                    
+                                    </button>                               
                                     <span class="mx-0 border-start" style="height: 20px; display: inline-block; vertical-align: middle;"></span>
                                     <a class="btn btn-outline-none btn-floating" download="pwd_{{site_search}}({{user.username}}).txt"
                                         href="data:text/plain;charset=utf-8,PassGen Data Downloaded for {{ site_search|urlencode }}%0A%0ANom d'utilisateur : {{ usrnm_search|urlencode }}%0AMot de Passe : {{ mdp_search|urlencode }}">

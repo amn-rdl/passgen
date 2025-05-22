@@ -39,8 +39,13 @@
                         </div>
                         <div class="mb-4">
                             <label for="pwd" class="form-label">Mot de passe</label>
-                            <input type="password" id="pwd" name="pwd" class="form-control"
-                                placeholder="Changez votre mot de passe" title="Modifier votre mot de passe">
+                            <div class="input-group">
+                                <input type="password" id="pwd" name="pwd" class="form-control"
+                                    placeholder="Changez votre mot de passe" title="Modifier votre mot de passe">
+                                <button class="btn btn-outline-dark btn-floating" type="button" onclick="togglePwd('pwd', this)" title="Afficher/Masquer le mot de passe">
+                                    <i class="fi fi-br-eye"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-warning" name="change_info_button"

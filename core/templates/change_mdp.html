@@ -23,8 +23,13 @@
                         </div>
                         <div class="mb-3">
                             <label for="new_password" class="form-label">Nouveau Mot de Passe</label>
-                            <input type="password" id="new_password" name="new_password" class="form-control"
+                            <div class="input-group">
+                                <input type="password" id="new_password" name="new_password" class="form-control"
                                 placeholder="Mot de Passe" required title="Entrez le nouveau mot de passe pour ce site">
+                                <button class="btn btn-outline-dark btn-floating" type="button" onclick="togglePwd('new_password', this)" title="Afficher/Masquer le mot de passe">
+                                    <i class="fi fi-br-eye"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-warning fw-bold text-uppercase" name="modif_button">

@@ -38,13 +38,23 @@
                         </div>
                         <div class="mb-3">
                             <label for="mdp1" class="form-label">Mot de passe</label>
-                            <input type="password" id="mdp1" name="mdp1" class="form-control"
-                                placeholder="Créez un mot de passe" required title="Créez un mot de passe">
+                            <div class="input-group">
+                                <input type="password" id="mdp1" name="mdp1" class="form-control"
+                                    placeholder="Créez un mot de passe" required title="Créez un mot de passe">
+                                <button class="btn btn-outline-dark btn-floating" type="button" onclick="togglePwd('mdp1', this)" title="Afficher/Masquer le mot de passe">
+                                    <i class="fi fi-br-eye"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="mb-4">
                             <label for="mdp2" class="form-label">Confirmation du mot de passe</label>
-                            <input type="password" id="mdp2" name="mdp2" class="form-control"
-                                placeholder="Confirmez votre mot de passe" required title="Confirmez votre mot de passe">
+                            <div class="input-group">
+                                <input type="password" id="mdp2" name="mdp2" class="form-control"
+                                    placeholder="Confirmez votre mot de passe" required title="Confirmez votre mot de passe">
+                                <button class="btn btn-outline-dark btn-floating" type="button" onclick="togglePwd('mdp2', this)" title="Afficher/Masquer le mot de passe">
+                                        <i class="fi fi-br-eye"></i>
+                                </button>
+                            </div>
                         </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-success" name="signin_button" title="Valider l'inscription">
