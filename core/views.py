@@ -33,7 +33,7 @@ def pass_create(level):
         pwd = fernet.encrypt(pwd)
     return pwd.decode()
 
-def avance_create(user_chars_desc, majuscules, miniscules, chiffres, ponct, user_chars_toggle, nb_char):
+def avance_create(user_chars, majuscules, miniscules, chiffres, ponct, user_chars_toggle, nb_char):
     chars = []
     upper = string.ascii_uppercase
     lower = string.ascii_lowercase
@@ -48,8 +48,9 @@ def avance_create(user_chars_desc, majuscules, miniscules, chiffres, ponct, user
     if chiffres:
         chars += digits
     if user_chars_toggle:
-        chars += user_chars_desc*2
-    pwd = "".join(random.choices(chars, k=nb_char)).encode()
+        chars += user_chars
+    pwd = "".join(random.choices(chars, k=nb_char-len(user_chars))) + "".join(user_chars)
+    pwd = "".join(random.sample(pwd, k=nb_char)).encode()
     pwd = fernet.encrypt(pwd)
     return pwd.decode()
 
@@ -101,8 +102,7 @@ def avance_mdp(request):
             save_mdp(user, password, data, usrnm_site, site)
             passdecode = pass_decode(password)
         else:
-            user_chars_desc = request.POST.get('user_chars_desc')
-            
+            user_chars = request.POST.get('user_chars')
             nb_char = request.POST.get('nb_char')
             nb_char = int(nb_char)
             majuscules = request.POST.get('majuscules') == 'on'
@@ -112,7 +112,7 @@ def avance_mdp(request):
             user_chars_toggle = request.POST.get('user_chars_toggle') == 'on'
             
             
-            password = avance_create(user_chars_desc, majuscules, miniscules, chiffres, ponct, user_chars_toggle, nb_char)
+            password = avance_create(user_chars, majuscules, miniscules, chiffres, ponct, user_chars_toggle, nb_char)
             passdecode = pass_decode(password)
             return render(request, "avance.html", {
                 'code': password,
