@@ -34,8 +34,7 @@
                                     <div class="accordion-body">
                                         <div class="mb-4">
                                             <label for="nb_char" class="form-label">Nombre de Caractères</label>
-                                            <input type="number" id="nb_char" name="nb_char" class="form-control"
-                                                value="12" title="Entrez le nombre de caractères pour ce mot de passe">
+                                            <input type="number" id="nb_char" name="nb_char" required class="form-control" placeholder="Ex : 12" title="Entrez le nombre de caractères pour ce mot de passe">
                                         </div>
                                         <label for="select_char" class="form-label">Composants</label>
                                         <div id="select_char">
@@ -61,7 +60,7 @@
                                                         <input class="form-check-input" type="checkbox" name="user_chars_toggle" id="user_chars_toggle">
                                                     </div>
                                                 </div>
-                                                <input type="text" class="form-control" id="user_chars" name="user_chars" aria-describedby="user_chars_desc">
+                                                <input type="text" class="form-control" id="user_chars" placeholder="Ex : cH@r" name="user_chars" aria-describedby="user_chars_desc">
                                             </div>
                                             <div class="form-text mb-3" id="user_chars_desc">Inserez les caractères à utiliser dans votre mot de passe (sans espaces)</div>
                                         </div>
@@ -82,25 +81,23 @@
                         <div class="container my-5">
                             <div class="row justify-content-center">
                                 <div class="col-lg-10">
-                                    <div class="card shadow-sm">
-                                        <div class="card-body text-center">
-                                            <h5 class="mb-3 text-uppercase">Votre Mot de passe</h5>
-                                            <div class="input-group">
-                                                <input type="password" value="{{ decode }}" id="mdp" readonly class="form-control form-control-lg d-inline badge bg-light text-dark font-monospace fs-6">
-                                                <button class="btn btn-outline-dark btn-floating" type="button" onclick="togglePwd('mdp', this)" title="Afficher/Masquer le mot de passe">
-                                                    <i class="fi fi-br-eye"></i>
-                                                </button>
-                                            </div>
-                                            <div class="d-flex justify-content-center gap-3 mt-4">
-                                                <button value="save" type="submit" name="action"
-                                                    class="btn btn-outline-success" title="Enregistrer ce mot de passe">
-                                                    <i class="fi fi-br-disk me-1"></i> Enregistrer
-                                                </button>
-                                                <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-danger"
-                                                    title="Annuler la génération">
-                                                    <i class="fi fi-br-cross me-1"></i> Annuler
-                                                </a>
-                                            </div>
+                                    <div class="card-body text-center">
+                                        <h5 class="mb-3 text-uppercase">Votre Mot de passe</h5>
+                                        <div class="input-group">
+                                            <input type="password" value="{{ decode }}" id="mdp" readonly class="form-control form-control-lg d-inline badge font-monospace fs-6">
+                                            <button class="btn btn-outline-dark btn-floating" type="button" onclick="togglePwd('mdp', this)" title="Afficher/Masquer le mot de passe">
+                                                <i class="fi fi-br-eye"></i>
+                                            </button>
+                                        </div>
+                                        <div class="d-flex justify-content-center gap-3 mt-4">
+                                            <button value="save" type="submit" name="action"
+                                                class="btn btn-outline-success" title="Enregistrer ce mot de passe">
+                                                <i class="fi fi-br-disk me-1"></i> Enregistrer
+                                            </button>
+                                            <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-outline-danger"
+                                                title="Annuler la génération">
+                                                <i class="fi fi-br-cross me-1"></i> Annuler
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

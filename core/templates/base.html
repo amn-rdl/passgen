@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/dark-theme.css' %}" rel="stylesheet">
     <link rel="shortcut icon" href="{% static 'img/logo_passgen.ico' %}" type="image/x-icon">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-brands/css/uicons-brands.css'>
@@ -13,12 +14,12 @@
     <title>{% block title %}{% endblock %} - Password Generator</title>
 </head>
 
-<body class="d-flex flex-column min-vh-100" style="background-color: #f9f9fb;">
+<body class="d-flex flex-column min-vh-100">
     <header>
-        <nav class="navbar navbar-expand-lg pt-3 shadow-sm" style="background-color: #f6f6f7;">
+        <nav class="navbar navbar-expand-lg pt-3 shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{% url 'home' %}" title="Accueil">
-                    <img src="{% static 'img/logo_passgen.svg' %}" alt="Logo de PassGen" class="mt-0 mb-0 me-4 ms-4" style="width: 75px; height: auto;">
+                    <img src="{% static 'img/logo_passgen.ico' %}" alt="Logo de PassGen" class="mt-0 mb-0 me-4 ms-4" style="width: 75px; height: auto;">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,7 +78,7 @@
                 {% if user.is_authenticated %}
                 <h5 class="offcanvas-title fs-3 fw-semibold me-5" id="staticBackdropLabel">Espace Compte</h5>
                 {% if user.is_superuser %}
-                <a class="btn fs-5 btn-floating text-white ms-5" href="{% url 'admin:index' %}" title="Aller à l'interface d'administration">
+                <a class="btn fs-5 ms-5" href="{% url 'admin:index' %}" title="Aller à l'interface d'administration">
                     <i class="fi fi-br-admin"></i>
                 </a>
                 {% endif %}
@@ -91,26 +92,26 @@
                 <ul class="nav flex-column text-start">
                     {% if user.is_authenticated %}
                     <li class="nav-item mb-3">
-                        <a class="nav-link text-white d-flex align-items-center gap-3 fs-4 fw-semibold"
+                        <a class="nav-link d-flex align-items-center gap-3 fs-4 fw-semibold"
                             href="{% url 'account' %}" title="Gérer mon compte">
                             <i class="fi fi-br-document-gear fs-5"></i> Mon Compte
                         </a>
                     </li>
                     <li class="nav-item mb-3">
-                        <a class="nav-link text-white d-flex align-items-center gap-3 fs-4 fw-semibold"
+                        <a class="nav-link d-flex align-items-center gap-3 fs-4 fw-semibold"
                             href="{% url 'logout' %}" title="Se déconnecter de mon compte">
                             <i class="fi fi-br-exit fs-5"></i> Déconnexion
                         </a>
                     </li>
                     {% else %}
                     <li class="nav-item mb-3">
-                        <a class="nav-link text-white d-flex align-items-center gap-3 fs-4 fw-semibold"
+                        <a class="nav-link d-flex align-items-center gap-3 fs-4 fw-semibold"
                             href="{% url 'login' %}" title="Se connecter à mon compte">
                             <i class="fi fi-br-sign-in-alt fs-5"></i> Connexion
                         </a>
                     </li>
                     <li class="nav-item mb-3">
-                        <a class="nav-link text-white d-flex align-items-center gap-3 fs-4 fw-semibold"
+                        <a class="nav-link d-flex align-items-center gap-3 fs-4 fw-semibold"
                             href="{% url 'signin' %}" title="Créer un nouveau compte">
                             <i class="fi fi-br-user-add fs-5"></i> Inscription
                         </a>
@@ -126,13 +127,13 @@
         {% endblock %}
     </main>
     <hr class="m-0">
-    <footer class="text-center text-lg-start text-white" style="background-color: #45526e">
+    <footer class="text-center text-lg-start">
         <div class="container p-4 pb-0">
             <section>
                 <div class="row">
                     <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">PassGen - Password Generator</h6>
-                        <p class="text-white">Nous sommes une entreprise indépendante dans le domaine de l'informatique permettant à nos utilisateurs plusieurs services d'aides à l'informatique.</p>
+                        <p>Nous sommes une entreprise dans le domaine de l'informatique permettant à nos utilisateurs de generer des mots de passes.</p>
                     </div>
                     <hr class="w-100 clearfix d-md-none">
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
@@ -152,9 +153,9 @@
                     </div>
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-                        <p class="text-uppercase text-white"><i class="fi fi-br-street-view me-2"></i> 16 Rue d'Auteuil, Paris 75016, FR</p>
-                        <p class="text-white"><i class="fi fi-br-envelope me-2"></i> contact@passgen.fr</p>
-                        <p class="text-white"><i class="fi fi-br-phone-call me-2"></i> +01 54 67 82 38</p>
+                        <p class="text-uppercase"><i class="fi fi-br-street-view me-2"></i> 16 Rue d'Auteuil, Paris 75016, FR</p>
+                        <p><i class="fi fi-br-envelope me-2"></i> contact@passgen.fr</p>
+                        <p><i class="fi fi-br-phone-call me-2"></i> +01 54 67 82 38</p>
                     </div>
                 </div>
             </section>
@@ -163,17 +164,17 @@
                 <div class="row d-flex align-items-center">
                     <div class="col-md-7 col-lg-8 text-center text-md-start">
                         <div class="p-3">
-                            © 2025 Copyright <a class="text-white text-decoration-none" href="{% url 'home' %}" title="Retourner à l'accueil">AMN Corp. with <small>Render</small></a>
+                            © 2025 Copyright AMN Corp. with <small>Render</small>
                         </div>
                     </div>
                     <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
-                        <a class="btn btn-outline-light btn-floating m-1 text-white" role="button"
+                        <a class="btn btn-floating m-1" role="button"
                             href="http://google.com" title="Visiter Google"><i class="fi fi-brands-google"></i></a>
-                        <a class="btn btn-outline-light btn-floating m-1 text-white" role="button"
+                        <a class="btn btn-floating m-1" role="button"
                             href="http://tiktok.com" title="Visiter TikTok"><i class="fi fi-brands-tik-tok"></i></a>
-                        <a class="btn btn-outline-light btn-floating m-1 text-white" role="button"
+                        <a class="btn btn-floating m-1" role="button"
                             href="http://snapchat.com" title="Visiter Snapchat"><i class="fi fi-brands-snapchat"></i></a>
-                        <a class="btn btn-outline-light btn-floating m-1 text-white" role="button"
+                        <a class="btn btn-floating m-1" role="button"
                             href="http://instagram.com" title="Visiter Instagram"><i class="fi fi-brands-instagram"></i></a>
                         <small class="ms-3">v1.1</small>
                     </div>

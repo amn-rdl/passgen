@@ -5,7 +5,5 @@ git push
 
 
 modifications a faire : 
+    Mode sombre/clair
 
-tout passer vers tailwind
-    tout refaire en dark (Mode sombre/clair)
-    style futuriste

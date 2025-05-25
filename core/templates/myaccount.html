@@ -16,7 +16,7 @@
                     {% endif %}
                     <div>
                         <h4 class="card-title mb-0">{{ user.first_name }} {{ user.last_name }}</h4>
-                        <small class="text-muted">@{{ user.username }}</small>
+                        <small style="color: #b0b3b8;">@{{ user.username }}</small>
                     </div>
                 </div>
                 <div class="card-body p-4">
@@ -26,7 +26,7 @@
                     <p class="card-text mb-4" title="Date de création du compte utilisateur">
                         Date de création : {{ user.date_joined|date:"d/m/Y à H:i" }}
                     </p>
-                    <p class="card-text mb-4" title="Dernière connexion de l'utilisateur">
+                    <p class="card-text mb-3" title="Dernière connexion de l'utilisateur">
                         Dernière connexion : {{ user.last_login|date:"d/m/Y à H:i" }}
                     </p>
                 </div>
