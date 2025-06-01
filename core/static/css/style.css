@@ -1,5 +1,5 @@
 body {
-    background-color: var(--bs-body-bg) !important;
+    background: linear-gradient(150deg, var(--bs-body-bg), var(--bs-tertiary-bg)) fixed;
     color: var(--bs-body-color) !important;
 }
 .navbar, .offcanvas, .dropdown-menu {
@@ -37,7 +37,7 @@ body {
     opacity: 1;
 }
 footer {
-    background-color: var(--bs-tertiary-bg, #20232a) !important;
+    background-color: var(--bs-tertiary-bg) !important;
     color: var(--bs-body-color) !important;
 }
 footer a {

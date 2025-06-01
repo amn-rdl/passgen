@@ -16,9 +16,9 @@
     <header>
         <nav class="navbar navbar-expand-lg pt-3 shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{% url 'home' %}" title="Accueil">
+                <div class="navbar-brand">
                     <img src="{% static 'img/logo_passgen.ico' %}" alt="Logo de PassGen" class="mt-0 mb-0 me-4 ms-4" style="width: 75px; height: auto;">
-                </a>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -179,18 +179,19 @@
                         </button>
                         <ul class="dropdown-menu shadow" aria-labelledby="bd-theme">
                             <li>
-                            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
-                                <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"/></svg>
-                                Sombre
-                                <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"/></svg>
-                            </button>
+                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark">
+                                    <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#moon-stars-fill"/></svg>
+                                    Sombre
+                                    <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"/></svg>
+                                </button>
                             </li>
+                            <hr class="my-2">
                             <li>
-                            <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
-                                <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"/></svg>
-                                Clair
-                                <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"/></svg>
-                            </button>
+                                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light">
+                                    <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#sun-fill"/></svg>
+                                    Clair
+                                    <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"/></svg>
+                                </button>
                             </li>
                         </ul>
                     </div>

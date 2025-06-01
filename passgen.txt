@@ -5,5 +5,7 @@ git push
 
 
 modifications a faire : 
-    Mode sombre/clair
+    faire le mockup en entier 
+    bien faire les couleurs 
 
+DEBUG = False
