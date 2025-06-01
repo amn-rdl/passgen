@@ -23,3 +23,6 @@ media/*
 
 # VSCode
 .vscode/
+
+# passgen.txt
+passgen.txt

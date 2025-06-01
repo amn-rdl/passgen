@@ -1,6 +1,6 @@
 cd C:\Users\amani\Documents\VSCode\Python Django\PassGen
 git add .
-git commit -m "."
+git commit -m "nv truc"
 git push
 
 
@@ -8,4 +8,4 @@ modifications a faire :
     faire le mockup en entier 
     bien faire les couleurs 
 
-DEBUG = False
+mettre  DEBUG = False  avant commit
