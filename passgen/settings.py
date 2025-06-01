@@ -14,7 +14,7 @@ import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = ')#g@0@m*pn)(bv#o!+$qgv0@bx3(f4c2ho=0v^an8$l*2_vhn0'
+SECRET_KEY = ''
 
 DEBUG = True
 
@@ -152,9 +152,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'passgen.wsgi.application'
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default='postgres://amani:EokxVJShebpAyL5JOFzH56JDrjCTyzLl@dpg-d0fk0fqdbo4c73ahrmkg-a.oregon-postgres.render.com/passgen_jldb'
-    )
+    'default': ''
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -181,9 +179,7 @@ USE_I18N = True
 USE_TZ = True
 
 cloudinary.config(
-    cloud_name='dvcn0i6e4',
-    api_key='199564695761819',
-    api_secret='DdhxphfwGSNlr3aZGI9CCHri07o'
+    
 )
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

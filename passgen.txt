@@ -8,4 +8,15 @@ modifications a faire :
     faire le mockup en entier 
     bien faire les couleurs 
 
-mettre  DEBUG = False  avant commit
+mettre  
+    DEBUG = False  
+    clear mdp.json
+    clear fernet key
+    SECRET_KEY = ')#g@0@m*pn)(bv#o!+$qgv0@bx3(f4c2ho=0v^an8$l*2_vhn0'
+    cloudinary.config()
+    DATABASES = {'default': ''}
+
+
+
+    
+        avant commit
