@@ -1,1 +1,1 @@
-[pass](https://passgen-mzxv.onrender.com/)
+[site](https://passgen-mzxv.onrender.com/)
